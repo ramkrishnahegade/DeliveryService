@@ -15,6 +15,6 @@ public class LeadController {
 	@GetMapping("/lead")
 	public void getLead() {
 		
-		deliveryService.getLead();
+		//deliveryService.getLead();
 	}
 }

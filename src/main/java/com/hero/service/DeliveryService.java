@@ -15,7 +15,6 @@ import com.hero.client.DeliveryPartnerClient;
 import com.hero.client.SalesforceAPILogin;
 import com.hero.client.vo.DeliveryOrderResponseVO;
 import com.hero.config.ApplicationPropertiesConfig;
-import com.hero.repository.LeadRepository;
 import com.hero.vo.AuthenticationResponse;
 import com.hero.vo.DeliveryOrderEvent;
 import com.salesforce.emp.connector.EmpConnector;
@@ -28,8 +27,9 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class DeliveryService {
 
-	@Autowired
-	private LeadRepository leadRepository;
+	/*
+	 * @Autowired private LeadRepository leadRepository;
+	 */
 	
 	@Autowired
 	private ApplicationPropertiesConfig appConfig;
@@ -45,14 +45,15 @@ public class DeliveryService {
 	
 	private static final ExecutorService workerThreadPool = Executors.newFixedThreadPool(10);
 	
-	public void getLead() {
-		
-		log.info(" saved : "+leadRepository.save());
-		log.info((leadRepository.getLeads()).toString());
-		log.info(" updated : "+leadRepository.update());
-		log.info((leadRepository.getLeads()).toString());
-		//log.info(" deleted : "+	leadRepository.deleteById());
-	}
+	/*
+	 * public void getLead() {
+	 * 
+	 * log.info(" saved : "+leadRepository.save());
+	 * log.info((leadRepository.getLeads()).toString());
+	 * log.info(" updated : "+leadRepository.update());
+	 * log.info((leadRepository.getLeads()).toString()); //log.info(" deleted : "+
+	 * leadRepository.deleteById()); }
+	 */
 	
 	public void subscribeDeliveryOrderEvent(EmpConnector  connector) {
 		ObjectMapper objectMapper = new ObjectMapper();
